@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de media</title>
+</head>
+
+<body>
+    <h1>Calculo de Media de notas</h1>
+    <div>
+        <input id="nota1" type="number">
+        <br>
+        <input id="nota2" type="number">
+        <br>
+        <input id="nota3" type="number">
+        <br>
+        <input id="nota4" type="number">
+        <br>
+    </div>
+
+    <button class="btn btn-outline-primary btn-lg btn-block" type="button"
+        onclick="calcularmedia()">
+        Calcular
+    </button>
+
+    <div>
+        <h3>Resultado:</h3>
+    </div>
+    <div class="col text-primary">
+        <h3 id="resultado"></h3>
+    </div>
+
+
+    <script>
+
+        function calcularmedia() {
+
+            var nota1 = +document.getElementById("nota1").value;
+            var nota2 = +document.getElementById("nota2").value;
+            var nota3 = +document.getElementById("nota3").value;
+            var nota4 = +document.getElementById("nota4").value;
+            var notaSoma = nota1 + nota2 + nota3 + nota4;
+            var totalNota = notaSoma / 4;
+
+            if (totalNota == 10) {
+                document.getElementById('resultado').innerHTML = `Parabéns você alcançou a nota maxima`
+            }
+            else if (nota1 > 10 || nota2 > 10 || nota3 > 10 || nota4 > 10) {
+                document.getElementById('resultado').innerHTML = `Digite numeros validos`
+            }
+            else if (totalNota < 7) {
+                document.getElementById('resultado').innerHTML = ` Infelizmente você foi reprovado:${totalNota}`
+            }
+            else if (totalNota >= 7) {
+                document.getElementById('resultado').innerHTML = ` Parabéns você foi aprovado com:${totalNota}`
+            }
+        };
+
+    </script>
+</body>
+
+</html>
